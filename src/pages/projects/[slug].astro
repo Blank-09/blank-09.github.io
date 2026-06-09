@@ -1,0 +1,92 @@
+---
+import Layout from "@/layouts/main.astro"
+import Github from "@/assets/icon/github"
+
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
+import { projects } from "@/data/projects"
+import { ExternalLink, ArrowLeft } from "lucide-react"
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }))
+}
+
+const { project } = Astro.props
+---
+
+<Layout
+  title={`${project.title} — Priyanshu T.`}
+  description={project.description}
+>
+  <div class="mx-auto max-w-3xl px-6 py-20 pt-28">
+    <!-- Back link -->
+    <div class="mb-8">
+      <Button variant="ghost" asChild size="sm">
+        <a href="/#projects">
+          <ArrowLeft data-icon="inline-start" />
+          Back to Portfolio
+        </a>
+      </Button>
+    </div>
+
+    <!-- Header -->
+    <div class="mb-8 flex flex-col gap-4">
+      <h1
+        class="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl"
+      >
+        {project.title}
+      </h1>
+      <p class="text-lg leading-relaxed text-muted-foreground">
+        {project.description}
+      </p>
+      <div class="flex flex-wrap gap-2">
+        {
+          project.techStack.map((tech) => (
+            <Badge variant="secondary">{tech}</Badge>
+          ))
+        }
+      </div>
+    </div>
+
+    <Separator className="mb-8" />
+
+    <!-- Action links -->
+    <div class="mb-10 flex flex-wrap gap-3">
+      {
+        project.githubUrl && (
+          <Button variant="outline" asChild>
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github />
+              View Source
+            </a>
+          </Button>
+        )
+      }
+      {
+        project.liveUrl && (
+          <Button variant="default" asChild>
+            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+              <ExternalLink data-icon="inline-start" />
+              Live Demo
+            </a>
+          </Button>
+        )
+      }
+    </div>
+
+    <!-- Long description -->
+    <div class="prose prose-neutral dark:prose-invert max-w-none">
+      <p class="text-base leading-relaxed text-foreground">
+        {project.longDescription}
+      </p>
+    </div>
+  </div>
+</Layout>

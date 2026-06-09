@@ -1,0 +1,47 @@
+---
+import ShapeGrid from "@/components/react-bits/ShapeGrid"
+import { Button } from "@/components/ui/button"
+---
+
+<section id="hero" class="relative h-screen overflow-hidden">
+  <ShapeGrid
+    speed={0.5}
+    squareSize={40}
+    direction="diagonal"
+    borderColor="#2F293A"
+    hoverFillColor="#222"
+    shape="square"
+    hoverTrailAmount={0}
+    client:load
+  />
+  <div
+    class="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 pt-16"
+  >
+    <div class="max-w-2xl flex flex-col items-center gap-6 text-center">
+      <div class="flex flex-col gap-2">
+        <p
+          class="text-sm font-medium tracking-widest text-muted-foreground uppercase"
+        >
+          Full Stack Developer
+        </p>
+        <h1
+          class="text-5xl font-bold sm:text-6xl lg:text-7xl font-heading tracking-tight text-foreground"
+        >
+          Priyanshu T.
+        </h1>
+        <p class="text-lg max-w-md mx-auto text-muted-foreground">
+          Building robust backends with Java &amp; Python, and clean UIs with
+          React.
+        </p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-3">
+        <Button variant="default" asChild size="lg">
+          <a href="#projects">View Work</a>
+        </Button>
+        <Button variant="outline" asChild size="lg">
+          <a href="#contact">Contact Me</a>
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>

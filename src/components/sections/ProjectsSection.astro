@@ -1,0 +1,35 @@
+---
+import { ProjectCard } from "@/components/ProjectCard"
+import { projects } from "@/data/projects"
+---
+
+<section id="projects" class="scroll-mt-16 px-6 py-20">
+  <div class="mx-auto flex max-w-5xl flex-col gap-10">
+    <div class="flex items-end justify-between">
+      <div class="flex flex-col gap-2">
+        <p
+          class="text-sm font-medium tracking-widest text-muted-foreground uppercase"
+        >
+          My Work
+        </p>
+        <h2
+          class="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+        >
+          Featured Projects
+        </h2>
+      </div>
+      <a
+        href="https://github.com/blank-09"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden text-sm text-muted-foreground transition-colors hover:text-foreground sm:block"
+      >
+        View all on GitHub →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </div>
+</section>

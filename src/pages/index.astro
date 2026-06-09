@@ -1,22 +1,16 @@
 ---
 import Layout from "@/layouts/main.astro"
-import ShapeGrid from "@/components/react-bits/ShapeGrid"
+import HeroSection from "@/components/sections/HeroSection.astro"
+import AboutSection from "@/components/sections/AboutSection.astro"
+import SkillsSection from "@/components/sections/SkillsSection.astro"
+import ProjectsSection from "@/components/sections/ProjectsSection.astro"
+import ContactSection from "@/components/sections/ContactSection.astro"
 ---
 
 <Layout>
-  <div class="relative h-screen">
-    <ShapeGrid
-      speed={0.5}
-      squareSize={40}
-      direction="diagonal"
-      borderColor="#2F293A"
-      hoverFillColor="#222"
-      shape="square"
-      hoverTrailAmount={0}
-      direction="diagonal"
-      size={40}
-      shape="square"
-      client:load
-    />
-  </div>
+  <HeroSection />
+  <AboutSection />
+  <SkillsSection />
+  <ProjectsSection />
+  <ContactSection />
 </Layout>
