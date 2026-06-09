@@ -1,17 +1,22 @@
 ---
 import Layout from "@/layouts/main.astro"
-import { Button } from "@/components/ui/button"
+import ShapeGrid from "@/components/react-bits/ShapeGrid"
 ---
 
 <Layout>
-  <div class="flex min-h-svh p-6">
-    <div class="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-      <div>
-        <h1 class="font-medium">Project ready!</h1>
-        <p>You may now add components and start building.</p>
-        <p>We've already added the button component for you.</p>
-        <Button client:load className="mt-2">Button</Button>
-      </div>
-    </div>
+  <div class="relative h-screen">
+    <ShapeGrid
+      speed={0.5}
+      squareSize={40}
+      direction="diagonal"
+      borderColor="#2F293A"
+      hoverFillColor="#222"
+      shape="square"
+      hoverTrailAmount={0}
+      direction="diagonal"
+      size={40}
+      shape="square"
+      client:load
+    />
   </div>
 </Layout>
